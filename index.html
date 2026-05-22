@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cockroach Janta Party — Rajasthan Chapter</title>
+    <style>
+        /* Premium Brutalist Design System - Inspired by CJP Original */
+        :root {
+            --bg: #fdfbf7;
+            --text: #111111;
+            --orange: #f26522;
+            --green: #007a33;
+            --border: 2px solid #111111;
+            --thick-border: 4px solid #111111;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            padding-bottom: 60px;
+        }
+
+        .ticker {
+            background-color: var(--orange);
+            color: white;
+            padding: 10px 0;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            border-bottom: var(--border);
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        header {
+            background-color: var(--bg);
+            padding: 25px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: var(--thick-border);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .logo-container { text-decoration: none; color: var(--text); }
+        .main-title { font-size: 28px; font-weight: 900; letter-spacing: -1px; text-transform: uppercase; }
+        .subtitle { font-size: 12px; letter-spacing: 1px; color: #555; text-transform: uppercase; }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: bold;
+            font-size: 15px;
+            text-transform: uppercase;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        nav a:hover { color: var(--orange); border-bottom: 2px solid var(--orange); }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 5% 60px;
+            border-bottom: var(--thick-border);
+            background: radial-gradient(circle, rgba(242,101,34,0.05) 10%, transparent 10%);
+            background-size: 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .badge {
+            background-color: var(--text);
+            color: var(--bg);
+            padding: 6px 15px;
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin-bottom: 45px;
+            color: #333;
+        }
+
+        .cta-group { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+
+        .btn-primary, .btn-secondary {
+            padding: 18px 35px; font-size: 16px; font-weight: bold;
+            text-transform: uppercase; text-decoration: none;
+            border: var(--border); cursor: pointer; transition: all 0.2s;
+        }
+
+        .btn-primary { background-color: var(--text); color: var(--bg); box-shadow: 5px 5px 0px var(--orange); }
+        .btn-primary:hover { background-color: var(--orange); color: white; transform: translate(-2px, -2px); box-shadow: 7px 7px 0px var(--text); }
+        .btn-secondary { background-color: transparent; color: var(--text); box-shadow: 5px 5px 0px var(--green); }
+        .btn-secondary:hover { background-color: var(--green); color: white; transform: translate(-2px, -2px); box-shadow: 7px 7px 0px var(--text); }
+
+        /* --- SACK MINISTER INTERACTIVE ZONE --- */
+        .sack-zone {
+            padding: 80px 5%;
+            background-color: #fff;
+            border-bottom: var(--thick-border);
+            text-align: center;
+            position: relative;
+        }
+
+        .image-container {
+            width: 320px;
+            height: 380px;
+            margin: 30px auto;
+            border: var(--thick-border);
+            background-color: #eee;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 8px 8px 0px #000;
+        }
+
+        /* Minister image styling */
+        .minister-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1.5s ease-out;
+        }
+
+        /* Overlay text jo image hide hone par dikhega */
+        .scald-text {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--orange);
+            text-transform: uppercase;
+            opacity: 0;
+            z-index: 1;
+            pointer-events: none;
+            transition: opacity 1s ease-in;
+            white-space: nowrap;
+        }
+
+        /* Cockroach Element Styles */
+        .cockroach-bug {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235c3a21'><path d='M12 2a2 2 0 0 0-2 2v1h4V4a2 2 0 0 0-2-2zm-3 5v2H5v1h4v2H4v1h5v2H4v1h5v2H5v1h4v1a3 3 0 0 0 6 0v-1h4v-1h-4v-2h5v-1h-5v-2h5v-1h-5V9h4V8h-4V7H9zm3 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z'/></svg>");
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .counter-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* Infinite Ticker */
+        .marquee-container {
+            background-color: var(--text); color: var(--bg);
+            overflow: hidden; white-space: nowrap; padding: 15px 0;
+            border-bottom: var(--thick-border); font-weight: bold; text-transform: uppercase; letter-spacing: 2px;
+        }
+        .marquee-text { display: inline-block; animation: marquee 20s linear infinite; font-size: 18px; }
+        @keyframes marquee { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
+
+        /* Stats Grid */
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: var(--thick-border); }
+        .stat-box { padding: 50px 20px; text-align: center; border-right: var(--border); }
+        .stat-box:last-child { border-right: none; }
+        .stat-box h2 { font-size: 4rem; font-weight: 900; color: var(--orange); }
+        .stat-box p { font-size: 14px; text-transform: uppercase; font-weight: bold; color: #555; }
+
+        /* General Layout */
+        .section-wrapper { padding: 100px 5%; border-bottom: var(--thick-border); }
+        .section-header { margin-bottom: 60px; }
+        .chapter-num { font-size: 14px; font-weight: bold; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; display: block; }
+        .section-title { font-size: 3.5rem; text-transform: uppercase; font-weight: 900; letter-spacing: -1px; }
+
+        /* Manifesto Grid */
+        .manifesto-list { display: flex; flex-direction: column; border: var(--border); }
+        .manifesto-row { display: flex; border-bottom: var(--border); background-color: white; }
+        .manifesto-row:last-child { border-bottom: none; }
+        .manifesto-num { font-size: 2.5rem; font-weight: 900; padding: 40px; min-width: 150px; border-right: var(--border); color: var(--green); display: flex; align-items: center; justify-content: center; background-color: rgba(0, 122, 51, 0.03); }
+        .manifesto-content { padding: 40px; font-size: 1.3rem; line-height: 1.6; font-weight: bold; display: flex; align-items: center; }
+
+        /* Eligibility List */
+        .eligibility-container { max-width: 900px; margin: 0 auto; border-top: var(--border); }
+        .eligibility-row { display: flex; justify-content: space-between; align-items: center; padding: 30px 20px; border-bottom: var(--border); font-size: 1.3rem; font-weight: bold; }
+        .eligibility-row span.req { color: #888; font-size: 14px; text-transform: uppercase; margin-right: 20px;}
+        .eligibility-row span.check { color: var(--green); font-size: 1.8rem; }
+
+        /* Modal Form */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 10000; justify-content: center; align-items: center; padding: 20px; }
+        .modal-content { background-color: var(--bg); border: var(--thick-border); padding: 40px; max-width: 550px; width: 100%; position: relative; box-shadow: 10px 10px 0px #000; }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 30px; font-weight: bold; cursor: pointer; }
+        .modal h2 { font-size: 2rem; text-transform: uppercase; margin-bottom: 15px; color: var(--orange); }
+        .modal p { margin-bottom: 25px; font-size: 14px; font-weight: bold; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; text-transform: uppercase; font-size: 12px; }
+        .form-group input { width: 100%; padding: 12px; border: var(--border); background: white; font-size: 16px; }
+
+        /* Footer */
+        footer { background-color: var(--text); color: var(--bg); padding: 80px 5% 40px; text-align: center; }
+        .footer-logo { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; letter-spacing: -1px; }
+        .social-box { margin: 40px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .social-box a { color: var(--text); background-color: var(--bg); text-decoration: none; font-weight: bold; padding: 12px 25px; border: 2px solid white; text-transform: uppercase; font-size: 14px; transition: all 0.2s; }
+        .social-box a:hover { background-color: var(--orange); color: white; transform: translateY(-3px); border-color: var(--orange); }
+        .footer-note { font-size: 12px; color: #666; margin-top: 40px; border-top: 1px solid #333; padding-top: 30px; text-transform: uppercase; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .stat-box { border-right: none; border-bottom: var(--border); }
+            header { flex-direction: column; gap: 20px; text-align: center;}
+            nav a { margin: 0 10px; font-size: 13px;}
+            .manifesto-row { flex-direction: column; }
+            .manifesto-num { border-right: none; border-bottom: var(--border); }
+            .eligibility-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ticker">SPONSORED BY NO ONE. FUNDED BY NOTHING. CHAPTER: RAJASTHAN</div>
+
+    <header>
+        <a href="#" class="logo-container">
+            <div class="main-title">COCKROACH JANTA PARTY</div>
+            <div class="subtitle">कॉकरोच जनता पार्टी • Est. 2026 (RJ)</div>
+        </a>
+        <nav>
+            <a href="#vision">Vision</a>
+            <a href="#sack-section">Sack Minister</a>
+            <a href="#manifesto">Manifesto</a>
+            <a href="#connect">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="badge">Live Since Yesterday</div>
+        <h1>Voice of the<br><span style="color:var(--orange);">Lazy & Unemployed</span></h1>
+        <p>A political movement for the youth that the recruitment boards forgot to count. Five heavy demands. Zero corporate funds. One giant, stubborn swarm of Rajasthan.</p>
+        
+        <div class="cta-group">
+            <a href="#eligibility" class="btn-primary">Join The Party &rarr;</a>
+            <a href="#sack-section" class="btn-secondary">Sack The Education Minister! &rarr;</a>
+        </div>
+    </section>
+
+    <section id="sack-section" class="sack-zone">
+        <span class="chapter-num">Interactive Petition</span>
+        <h2 class="section-title" style="font-size: 2.5rem;">Sack the Education Minister</h2>
+        <p style="margin-top: 10px; font-weight: bold; color: #444;">Click on the image below to unleash the swarm and remove him from office!</p>
+        
+        <div class="image-container" id="ministerBox" onclick="unleashSwarm(event)">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23cccccc'><rect width='100' height='100'/><text x='50%23' y='50%23' font-size='10' dominant-baseline='middle' text-anchor='middle' fill='%23666666'>MINISTER PHOTO</text></svg>" class="minister-img" id="ministerImg" alt="Education Minister">
+            <div class="scald-text" id="scaldText">SACKED!</div>
+        </div>
+
+        <div class="counter-text">Total Sacks: <span id="sackCounter" style="color: var(--orange); font-size: 2rem;">7,482</span></div>
+    </section>
+
+    <div class="marquee-container">
+        <div class="marquee-text">
+            YOU CANNOT SQUASH A MOVEMENT ✦ TOGETHER WE SURVIVE ✦ STRONGER TOGETHER ✦ UNITY & RESILIENCE ✦ YOU CANNOT SQUASH A MOVEMENT ✦ TOGETHER WE SURVIVE ✦ STRONGER TOGETHER ✦ UNITY & RESILIENCE ✦
+        </div>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-box">
+            <h2>05</h2>
+            <p>Solid Demands</p>
+        </div>
+        <div class="stat-box">
+            <h2>0%</h2>
+            <p>Corporate Donors</p>
+        </div>
+        <div class="stat-box">
+            <h2>&infin;</h2>
+            <p>Unlimited Patience</p>
+        </div>
+    </div>
+
+    <section id="vision" class="section-wrapper">
+        <div class="section-header">
+            <span class="chapter-num">Chapter One</span>
+            <h2 class="section-title">Our Movement's Vision.</h2>
+        </div>
+        <p style="font-size: 1.6rem; max-width: 900px; font-weight: bold; line-height: 1.6;">
+            Hum yahan naye sarkari mehal banane ya tax payers ke paise par aish karne nahi aaye hain. Hum yahan baar-baar, likhit mein, aur bohot loudly poochhne aaye hain ki— <span style="background-color: #fff2cc; padding: 2px 8px;">Humare Government Exams Ke Papers Leak Kaise Ho Rhe Hain?</span> Aur unka zimmedar kaun hai? That's it.
+        </p>
+    </section>
+
+    <section id="manifesto" class="section-wrapper" style="background-color: #faf8f5;">
+        <div class="section-header">
+            <span class="chapter-num">Chapter Two</span>
+            <h2 class="section-title">The Rajasthan Manifesto.</h2>
+        </div>
+
+        <div class="manifesto-list">
+            <div class="manifesto-row">
+                <div class="manifesto-num">01</div>
+                <div class="manifesto-content">Agar state mein koi bhi sarkari exam ka paper leak hua, toh bina kisi delay ke Education Minister ko turant pad se sakh (sack) kiya jayega.</div>
+            </div>
+            <div class="manifesto-row">
+                <div class="manifesto-num">02</div>
+                <div class="manifesto-content">Chunav jeetne ke baad dal badalne wale kisi bhi MP/MLA par agle 20 saal tak public office hold karne aur election ladne par mukammal ban lagega.</div>
+            </div>
+            <div class="manifesto-row">
+                <div class="manifesto-num">03</div>
+                <div class="manifesto-content">Mahilao ko Vidhan Sabha aur Cabinet mein poora 50% reservation diya jayega, bina kisi kintu-parantu ke.</div>
+            </div>
+            <div class="manifesto-row">
+                <div class="manifesto-num">04</div>
+                <div class="manifesto-content">Berozgaari Bhatta (Allowance) ke liye chakkar kaatna band. Chronically online youth ke khate mein direct aur automatic transfer system hoga.</div>
+            </div>
+            <div class="manifesto-row">
+                <div class="manifesto-num">05</div>
+                <div class="manifesto-content">Truly independent media ko space dene ke liye, bade corporate houses dwara owned media outlets ke state licenses par kadi janch hogi.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="eligibility" class="section-wrapper">
+        <div class="section-header" style="text-align: center;">
+            <span class="chapter-num">Chapter Three</span>
+            <h2 class="section-title">Are You Eligible to Join?</h2>
+        </div>
+
+        <div class="eligibility-container">
+            <div class="eligibility-row">
+                <div><span class="req">REQ / 01</span> Unemployed (By force, by choice, or by system)</div>
+                <span class="check">&#10003;</span>
+            </div>
+            <div class="eligibility-row">
+                <div><span class="req">REQ / 02</span> Lazy (Physically only. Dimaag spiral hote rehna chahiye)</div>
+                <span class="check">&#10003;</span>
+            </div>
+            <div class="eligibility-row">
+                <div><span class="req">REQ / 03</span> Chronically Online (Minimum 11 hours a day minimum)</div>
+                <span class="check">&#10003;</span>
+            </div>
+            <div class="eligibility-row">
+                <div><span class="req">REQ / 04</span> Professional Ranter (Logic aur sharp facts ke sath)</div>
+                <span class="check">&#10003;</span>
+            </div>
+        </div>
+    </section>
+
+    <footer id="connect">
+        <div class="footer-logo">COCKROACH JANTA PARTY</div>
+        <p style="font-weight: bold; letter-spacing: 1px; color:#aaa;">RAJASTHAN CHAPTER — CONNECT WITH THE SWARM</p>
+        
+        <div class="social-box">
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">X / Twitter</a>
+            <a href="#" target="_blank">Facebook</a>
+        </div>
+
+        <p style="font-size: 14px; font-weight: bold;">HQ: Wherever the free government Wi-Fi works in Rajasthan.</p>
+        
+        <div class="footer-note">
+            © 2026 COCKROACH JANTA PARTY (RJ) • ALL RANTS RESERVED. <br>
+            <span style="color: var(--orange);">⚠ WARNING: A WORK OF SATIRE & GENERAL DISGRUNTLEMENT.</span>
+        </div>
+    </footer>
+
+    <script>
+        let clickCount = 0;
+        let totalSacks = 7482;
+
+        function unleashSwarm(event) {
+            const box = document.getElementById('ministerBox');
+            const img = document.getElementById('ministerImg');
+            const txt = document.getElementById('scaldText');
+            const counter = document.getElementById('sackCounter');
+
+            clickCount++;
+            totalSacks++;
+            counter.innerText = totalSacks.toLocaleString();
+
+            // Image ki opacity dheere-dheere kam karo har click par
+            let currentOpacity = 1 - (clickCount * 0.15);
+            if (currentOpacity < 0) currentOpacity = 0;
+            img.style.opacity = currentOpacity;
+
+            // Agar image poori hide hone wali ho toh "SACKED!" text show karo
+            if (currentOpacity <= 0.3) {
+                txt.style.opacity = 1;
+            }
+
+            // Ek baar mein 15 cockroach generate karo click point par
+            for (let i = 0; i < 15; i++) {
+                createCockroach(event, box);
+            }
+        }
+
+        function createCockroach(event) {
+            const box = document.getElementById('ministerBox');
+            const bug = document.createElement('div');
+            bug.className = 'cockroach-bug';
+
+            // Box ke relative coordinates 
