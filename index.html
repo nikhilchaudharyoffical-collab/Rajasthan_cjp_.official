@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cockroach Janta Party — Rajasthan Chapter</title>
     <style>
-        /* Base Brutalist Design System */
+        /* Premium Brutalist Design System — RECOVERED */
         :root {
             --bg: #fdfbf7;
             --text: #111111;
@@ -67,9 +67,10 @@
             border-bottom: 2px solid transparent;
             transition: all 0.2s;
         }
+
         nav a:hover { color: var(--orange); border-bottom: 2px solid var(--orange); }
 
-        /* Hero Section */
+        /* Hero Section Original Look */
         .hero {
             padding: 100px 5% 60px;
             border-bottom: var(--thick-border);
@@ -100,6 +101,7 @@
             text-transform: uppercase;
             margin-bottom: 30px;
         }
+
         .hero p { font-size: 1.4rem; max-width: 800px; margin-bottom: 45px; color: #333; }
         .cta-group { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
 
@@ -108,14 +110,15 @@
             text-transform: uppercase; text-decoration: none;
             border: var(--border); cursor: pointer; transition: all 0.2s;
         }
+
         .btn-primary { background-color: var(--text); color: var(--bg); box-shadow: 5px 5px 0px var(--orange); }
         .btn-primary:hover { background-color: var(--orange); color: white; transform: translate(-2px, -2px); box-shadow: 7px 7px 0px var(--text); }
         .btn-secondary { background-color: transparent; color: var(--text); box-shadow: 5px 5px 0px var(--green); }
         .btn-secondary:hover { background-color: var(--green); color: white; transform: translate(-2px, -2px); box-shadow: 7px 7px 0px var(--text); }
 
-        /* --- SACK MINISTER ZONE (NO BOX / REAL SITE LOOK) --- */
+        /* --- SACK ZONE (NO BOXES / RAW VIEW) --- */
         .sack-zone {
-            padding: 60px 5%;
+            padding: 100px 5%;
             background-color: var(--bg);
             border-bottom: var(--thick-border);
             text-align: center;
@@ -123,7 +126,7 @@
         }
 
         .minister-wrapper {
-            max-width: 400px;
+            max-width: 380px;
             margin: 40px auto;
             position: relative;
             cursor: pointer;
@@ -136,7 +139,7 @@
             height: auto;
             display: block;
             opacity: 1;
-            transition: opacity 0.1s linear; /* Smooth auto fading */
+            transition: opacity 0.1s linear;
         }
 
         .scald-text {
@@ -157,7 +160,7 @@
             border: 3px solid var(--orange);
         }
 
-        /* Full Screen Cockroach Style */
+        /* Full Screen Cockroach Layer */
         .global-cockroach {
             position: fixed;
             width: 32px;
@@ -169,9 +172,9 @@
             pointer-events: none;
         }
 
-        .counter-text { font-size: 1.5rem; font-weight: bold; margin-top: 15px; }
+        .counter-text { font-size: 1.8rem; font-weight: 900; margin-top: 20px; text-transform: uppercase; }
 
-        /* Infinite Ticker */
+        /* Infinite Ticker Layout Recovered */
         .marquee-container {
             background-color: var(--text); color: var(--bg);
             overflow: hidden; white-space: nowrap; padding: 15px 0;
@@ -180,12 +183,50 @@
         .marquee-text { display: inline-block; animation: marquee 20s linear infinite; font-size: 18px; }
         @keyframes marquee { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
 
-        /* Stats Grid */
+        /* Stats Grid Layout Recovered */
         .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: var(--thick-border); }
         .stat-box { padding: 50px 20px; text-align: center; border-right: var(--border); }
         .stat-box:last-child { border-right: none; }
         .stat-box h2 { font-size: 4rem; font-weight: 900; color: var(--orange); }
         .stat-box p { font-size: 14px; text-transform: uppercase; font-weight: bold; color: #555; }
+
+        /* Content Sections Layout Recovered */
+        .section-wrapper { padding: 100px 5%; border-bottom: var(--thick-border); }
+        .section-header { margin-bottom: 60px; }
+        .chapter-num { font-size: 14px; font-weight: bold; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; display: block; }
+        .section-title { font-size: 3.5rem; text-transform: uppercase; font-weight: 900; letter-spacing: -1px; }
+
+        /* Manifesto Layout Recovered */
+        .manifesto-list { display: flex; flex-direction: column; border: var(--border); }
+        .manifesto-row { display: flex; border-bottom: var(--border); background-color: white; }
+        .manifesto-row:last-child { border-bottom: none; }
+        .manifesto-num { font-size: 2.5rem; font-weight: 900; padding: 40px; min-width: 150px; border-right: var(--border); color: var(--green); display: flex; align-items: center; justify-content: center; background-color: rgba(0, 122, 51, 0.03); }
+        .manifesto-content { padding: 40px; font-size: 1.3rem; line-height: 1.6; font-weight: bold; display: flex; align-items: center; }
+
+        /* Eligibility Layout Recovered */
+        .eligibility-container { max-width: 900px; margin: 0 auto; border-top: var(--border); }
+        .eligibility-row { display: flex; justify-content: space-between; align-items: center; padding: 30px 20px; border-bottom: var(--border); font-size: 1.3rem; font-weight: bold; }
+        .eligibility-row span.req { color: #888; font-size: 14px; text-transform: uppercase; margin-right: 20px;}
+        .eligibility-row span.check { color: var(--green); font-size: 1.8rem; }
+
+        /* Footer Layout Recovered */
+        footer { background-color: var(--text); color: var(--bg); padding: 80px 5% 40px; text-align: center; }
+        .footer-logo { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; letter-spacing: -1px; }
+        .social-box { margin: 40px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .social-box a { color: var(--text); background-color: var(--bg); text-decoration: none; font-weight: bold; padding: 12px 25px; border: 2px solid white; text-transform: uppercase; font-size: 14px; transition: all 0.2s; }
+        .social-box a:hover { background-color: var(--orange); color: white; transform: translateY(-3px); border-color: var(--orange); }
+        .footer-note { font-size: 12px; color: #666; margin-top: 40px; border-top: 1px solid #333; padding-top: 30px; text-transform: uppercase; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .stat-box { border-right: none; border-bottom: var(--border); }
+            header { flex-direction: column; gap: 20px; text-align: center;}
+            nav a { margin: 0 10px; font-size: 13px;}
+            .manifesto-row { flex-direction: column; }
+            .manifesto-num { border-right: none; border-bottom: var(--border); }
+            .eligibility-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+        }
     </style>
 </head>
 <body>
@@ -200,14 +241,18 @@
         <nav>
             <a href="#vision">Vision</a>
             <a href="#sack-section">Sack Minister</a>
+            <a href="#manifesto">Manifesto</a>
+            <a href="#connect">Contact</a>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="badge">Live Chapter</div>
+        <div class="badge">Live Since Yesterday</div>
         <h1>Voice of the<br><span style="color:var(--orange);">Lazy & Unemployed</span></h1>
-        <p>Paanch demands. Zero corporate funds. Ek ziddi swarm. Padharo Mhare Desh, but pehle naukri do!</p>
+        <p>A political movement for the youth that the recruitment boards forgot to count. Five heavy demands. Zero corporate funds. One giant, stubborn swarm of Rajasthan.</p>
+        
         <div class="cta-group">
+            <a href="#eligibility" class="btn-primary">Join The Party &rarr;</a>
             <a href="#sack-section" class="btn-secondary">Sack The Education Minister! &rarr;</a>
         </div>
     </section>
@@ -215,19 +260,19 @@
     <section id="sack-section" class="sack-zone">
         <span class="chapter-num">Interactive Petition</span>
         <h2 class="section-title" style="font-size: 2.5rem;">Sack the Education Minister</h2>
-        <p style="margin-top: 10px; font-weight: bold; color: #444;">Just ONE click on the photo to start the automatic full sack process!</p>
+        <p style="margin-top: 10px; font-weight: bold; color: #444;">Click directly on the photo below to release persistent cockroaches across the entire screen!</p>
         
         <div class="minister-wrapper" id="ministerWrapper" onclick="startAutoSack(event)">
             <img src="minister.jpg" class="minister-img" id="ministerImg" alt="Education Minister">
             <div class="scald-text" id="scaldText">SACKED!</div>
         </div>
 
-        <div class="counter-text">Total Sacks: <span id="sackCounter" style="color: var(--orange); font-size: 2rem;">Loading...</span></div>
+        <div class="counter-text">Total Sacks: <span id="sackCounter" style="color: var(--orange); font-size: 2.2rem;">Loading...</span></div>
     </section>
 
     <div class="marquee-container">
         <div class="marquee-text">
-            YOU CANNOT SQUASH A MOVEMENT ✦ TOGETHER WE SURVIVE ✦ STRONGER TOGETHER ✦ UNITY & RESILIENCE ✦
+            YOU CANNOT SQUASH A MOVEMENT ✦ TOGETHER WE SURVIVE ✦ STRONGER TOGETHER ✦ UNITY & RESILIENCE ✦ YOU CANNOT SQUASH A MOVEMENT ✦ TOGETHER WE SURVIVE ✦ STRONGER TOGETHER ✦ UNITY & RESILIENCE ✦
         </div>
     </div>
 
@@ -246,6 +291,90 @@
         </div>
     </div>
 
+    <section id="vision" class="section-wrapper">
+        <div class="section-header">
+            <span class="chapter-num">Chapter One</span>
+            <h2 class="section-title">Our Movement's Vision.</h2>
+        </div>
+        <p style="font-size: 1.6rem; max-width: 900px; font-weight: bold; line-height: 1.6;">
+            Hum yahan naye sarkari mehal banane ya tax payers ke paise par aish karne nahi aaye hain. Hum yahan baar-baar, likhit mein, aur bohot loudly poochhne aaye hain ki— <span style="background-color: #fff2cc; padding: 2px 8px;">Humare Government Exams Ke Papers Leak Kaise Ho Rhe Hain?</span> Aur unka zimmedar kaun hai? That's it.
+        </p>
+    </section>
+
+    <section id="manifesto" class="section-wrapper" style="background-color: #faf8f5;">
+        <div class="section-header">
+            <span class="chapter-num">Chapter Two</span>
+            <h2 class="section-title">The Rajasthan Manifesto.</h2>
+        </div>
+
+        <div class="manifesto-list">
+            <div class="manifesto-row">
+                <div class="manifesto-num">01</div>
+                <div class="manifesto-content">Agar state mein koi bhi sarkari exam ka paper leak hua, toh bina kisi delay ke Education Minister ko turant pad se sakh (sack) kiya jayega.</div>
+            </div>
+            <div class="manifesto-row">
+                <div class="manifesto-num">02</div>
+                <div class="manifesto-content">Chunav jeetne ke baad dal badalne wale kisi bhi MP/MLA par agle 20 saal tak public office hold karne aur election ladne par mukammal ban lagega.</div>
+            </div>
+            <div class="manifesto-row">
+                <div class="manifesto-num">03</div>
+                <div class="manifesto-content">Mahilao ko Vidhan Sabha aur Cabinet mein poora 50% reservation diya jayega, bina kisi kintu-parantu ke.</div>
+            </div>
+            <div class="manifesto-row">
+                <div class="manifesto-num">04</div>
+                <div class="manifesto-content">Berozgaari Bhatta (Allowance) ke liye chakkar kaatna band. Chronically online youth ke khate mein direct aur automatic transfer system hoga.</div>
+            </div>
+            <div class="manifesto-row">
+                <div class="manifesto-num">05</div>
+                <div class="manifesto-content">Truly independent media ko space dene ke liye, bade corporate houses dwara owned media outlets ke state licenses par kadi janch hogi.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="eligibility" class="section-wrapper">
+        <div class="section-header" style="text-align: center;">
+            <span class="chapter-num">Chapter Three</span>
+            <h2 class="section-title">Are You Eligible to Join?</h2>
+        </div>
+
+        <div class="eligibility-container">
+            <div class="eligibility-row">
+                <div><span class="req">REQ / 01</span> Unemployed (By force, by choice, or by system)</div>
+                <span class="check">&#10003;</span>
+            </div>
+            <div class="eligibility-row">
+                <div><span class="req">REQ / 02</span> Lazy (Physically only. Dimaag spiral hote rehna chahiye)</div>
+                <span class="check">&#10003;</span>
+            </div>
+            <div class="eligibility-row">
+                <div><span class="req">REQ / 03</span> Chronically Online (Minimum 11 hours a day minimum)</div>
+                <span class="check">&#10003;</span>
+            </div>
+            <div class="eligibility-row">
+                <div><span class="req">REQ / 04</span> Professional Ranter (Logic aur sharp facts ke sath)</div>
+                <span class="check">&#10003;</span>
+            </div>
+        </div>
+    </section>
+
+    <footer id="connect">
+        <div class="footer-logo">COCKROACH JANTA PARTY</div>
+        <p style="font-weight: bold; letter-spacing: 1px; color:#aaa;">RAJASTHAN CHAPTER — CONNECT WITH THE SWARM</p>
+        
+        <div class="social-box">
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">X / Twitter</a>
+            <a href="#" target="_blank">Facebook</a>
+        </div>
+
+        <p style="font-size: 14px; font-weight: bold;">HQ: Wherever the free government Wi-Fi works in Rajasthan.</p>
+        
+        <div class="footer-note">
+            © 2026 COCKROACH JANTA PARTY (RJ) • ALL RANTS RESERVED. <br>
+            <span style="color: var(--orange);">⚠ WARNING: A WORK OF SATIRE & GENERAL DISGRUNTLEMENT.</span>
+        </div>
+    </footer>
+
     <script>
         let baseCounter = localStorage.getItem('cjp_sack_votes');
         let isSackingStarted = false;
@@ -253,7 +382,7 @@
         let currentOpacity = 1;
 
         if (!baseCounter) {
-            baseCounter = 485120; // Badhiya heavy numbers se shuru
+            baseCounter = 845210; // High real-time feeling global digit
             localStorage.setItem('cjp_sack_votes', baseCounter);
         } else {
             baseCounter = parseInt(baseCounter);
@@ -262,55 +391,51 @@
         const counterElement = document.getElementById('sackCounter');
         counterElement.innerText = baseCounter.toLocaleString();
 
-        // 1. REAL LIVE COUNTER ENGINE (Automatic background signatures simulation)
+        // FAST REAL LIVE COUNTER ENGINE (Updates every 300ms for continuous ticker movement)
         setInterval(() => {
-            // Agar normal chal raha hai toh dheere badhega, agar animation chal raha hai toh janta active ho jayegi
-            let speedFactor = isSackingStarted ? Math.floor(Math.random() * 15) + 5 : Math.floor(Math.random() * 3) + 1;
+            let speedFactor = isSackingStarted ? Math.floor(Math.random() * 8) + 4 : Math.floor(Math.random() * 2) + 1;
             baseCounter += speedFactor;
             localStorage.setItem('cjp_sack_votes', baseCounter);
             counterElement.innerText = baseCounter.toLocaleString();
-        }, 1500);
+        }, 300);
 
-        // 2. AUTO SACK CONTROLLER (Ek click par sab automatic chalega)
+        // ONE TAP AUTOMATIC SACK HANDLER
         function startAutoSack(event) {
-            if (isSackingStarted) return; // Ek baar shuru ho gaya toh dobara click block
+            if (isSackingStarted) return;
             isSackingStarted = true;
 
             const img = document.getElementById('ministerImg');
             const txt = document.getElementById('scaldText');
 
-            // Ek continuous loop lagate hain jo photo ko dheere-dheere fade karega aur cockroaches nikalta rahega
             const autoSackInterval = setInterval(() => {
-                currentOpacity -= 0.02; // Dheere dheere image ko fade karne ke liye
+                currentOpacity -= 0.02; // Dheere dheere opacity down hogi
                 if (currentOpacity < 0) currentOpacity = 0;
                 img.style.opacity = currentOpacity;
 
-                // Live votes badhte hue dikhane ke liye loop mein increment
-                baseCounter += Math.floor(Math.random() * 8) + 3;
+                // Click hote hi counter tezi se spike karega
+                baseCounter += Math.floor(Math.random() * 5) + 2;
                 counterElement.innerText = baseCounter.toLocaleString();
 
-                // Har frame par random coordinates se continuous cockroaches swarm spawn honge screen par
+                // Swarm continuous creation loop
                 for (let i = 0; i < 3; i++) {
                     triggerAutoCockroach(event);
                 }
 
-                // Jab image poori tarah gayab ho jaye
                 if (currentOpacity <= 0) {
                     clearInterval(autoSackInterval);
                     ministerSacked = true;
-                    txt.style.opacity = 1; // Show SACKED banner
+                    txt.style.opacity = 1;
                 }
-            }, 80); // Har 80ms mein loop chalega smooth feel ke liye
+            }, 60); // 60ms for fluid decay rate
         }
 
-        // 3. COCKROACH PHYSICS ENGINE (Crawling across entire viewport)
+        // COCKROACH PHYSICS
         function triggerAutoCockroach(event) {
             const bug = document.createElement('div');
             bug.className = 'global-cockroach';
             
-            // Initial position user ke click point ke thoda aas-paas se spread hogi
-            let randomXOffset = (Math.random() * 160) - 80;
-            let randomYOffset = (Math.random() * 160) - 80;
+            let randomXOffset = (Math.random() * 120) - 60;
+            let randomYOffset = (Math.random() * 120) - 60;
             let startX = event.clientX + randomXOffset;
             let startY = event.clientY + randomYOffset;
 
@@ -324,7 +449,7 @@
             let speed = 4 + Math.random() * 5;
 
             const crawlInterval = setInterval(() => {
-                angle += (Math.random() * 0.4 - 0.2); // Organic jitter movement
+                angle += (Math.random() * 0.4 - 0.2);
                 currentX += Math.cos(angle) * speed;
                 currentY += Math.sin(angle) * speed;
 
@@ -332,21 +457,19 @@
                 bug.style.top = currentY + 'px';
                 bug.style.transform = `rotate(${angle + Math.PI/2}rad)`;
 
-                // Screen boundaries se bounce back collision setup
                 if (currentX < 0 || currentX > window.innerWidth - 30) angle = Math.PI - angle;
                 if (currentY < 0 || currentY > window.innerHeight - 30) angle = -angle;
 
-                // Jab poora "Sacked" ho jaye toh cockroaches screen par 3 second ghoom kar automatic clear honge
                 if (ministerSacked) {
                     setTimeout(() => {
                         let op = parseFloat(bug.style.opacity || 1);
-                        op -= 0.05;
+                        op -= 0.04;
                         bug.style.opacity = op;
                         if (op <= 0) {
                             clearInterval(crawlInterval);
                             bug.remove();
                         }
-                    }, 2000);
+                    }, 2500);
                 }
             }, 30);
         }
