@@ -136,43 +136,57 @@
             height: 380px;
             margin: 30px auto;
             border: var(--thick-border);
-            background-color: #eee;
+            background-color: #222; /* Blackish sleek background */
             position: relative;
             overflow: hidden;
             cursor: pointer;
             box-shadow: 8px 8px 0px #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Minister image styling */
         .minister-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: opacity 1.5s ease-out;
+            transition: opacity 1s ease-out;
         }
 
-        /* Overlay text jo image hide hone par dikhega */
+        .placeholder-text {
+            position: absolute;
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            pointer-events: none;
+        }
+
         .scald-text {
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 900;
             color: var(--orange);
             text-transform: uppercase;
             opacity: 0;
-            z-index: 1;
+            z-index: 10;
             pointer-events: none;
-            transition: opacity 1s ease-in;
+            transition: opacity 0.5s ease-in;
             white-space: nowrap;
+            background-color: rgba(0,0,0,0.8);
+            padding: 10px 20px;
+            border: 2px solid var(--orange);
         }
 
-        /* Cockroach Element Styles */
+        /* Improved High-Visibility Cockroach Design */
         .cockroach-bug {
             position: absolute;
-            width: 24px;
-            height: 24px;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235c3a21'><path d='M12 2a2 2 0 0 0-2 2v1h4V4a2 2 0 0 0-2-2zm-3 5v2H5v1h4v2H4v1h5v2H4v1h5v2H5v1h4v1a3 3 0 0 0 6 0v-1h4v-1h-4v-2h5v-1h-5v-2h5v-1h-5V9h4V8h-4V7H9zm3 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z'/></svg>");
+            width: 35px; /* Thoda bada size taaki phone pe acche se dikhe */
+            height: 35px;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23b55d22'><path d='M12 2a2 2 0 0 0-2 2v1h4V4a2 2 0 0 0-2-2zm-3 5v2H5v1h4v2H4v1h5v2H4v1h5v2H5v1h4v1a3 3 0 0 0 6 0v-1h4v-1h-4v-2h5v-1h-5v-2h5v-1h-5V9h4V8h-4V7H9zm3 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z'/></svg>");
             background-size: contain;
             background-repeat: no-repeat;
             z-index: 5;
@@ -219,16 +233,6 @@
         .eligibility-row { display: flex; justify-content: space-between; align-items: center; padding: 30px 20px; border-bottom: var(--border); font-size: 1.3rem; font-weight: bold; }
         .eligibility-row span.req { color: #888; font-size: 14px; text-transform: uppercase; margin-right: 20px;}
         .eligibility-row span.check { color: var(--green); font-size: 1.8rem; }
-
-        /* Modal Form */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 10000; justify-content: center; align-items: center; padding: 20px; }
-        .modal-content { background-color: var(--bg); border: var(--thick-border); padding: 40px; max-width: 550px; width: 100%; position: relative; box-shadow: 10px 10px 0px #000; }
-        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 30px; font-weight: bold; cursor: pointer; }
-        .modal h2 { font-size: 2rem; text-transform: uppercase; margin-bottom: 15px; color: var(--orange); }
-        .modal p { margin-bottom: 25px; font-size: 14px; font-weight: bold; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; text-transform: uppercase; font-size: 12px; }
-        .form-group input { width: 100%; padding: 12px; border: var(--border); background: white; font-size: 16px; }
 
         /* Footer */
         footer { background-color: var(--text); color: var(--bg); padding: 80px 5% 40px; text-align: center; }
@@ -281,10 +285,11 @@
     <section id="sack-section" class="sack-zone">
         <span class="chapter-num">Interactive Petition</span>
         <h2 class="section-title" style="font-size: 2.5rem;">Sack the Education Minister</h2>
-        <p style="margin-top: 10px; font-weight: bold; color: #444;">Click on the image below to unleash the swarm and remove him from office!</p>
+        <p style="margin-top: 10px; font-weight: bold; color: #444;">Click inside the box below to unleash the swarm and remove him from office!</p>
         
         <div class="image-container" id="ministerBox" onclick="unleashSwarm(event)">
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23cccccc'><rect width='100' height='100'/><text x='50%23' y='50%23' font-size='10' dominant-baseline='middle' text-anchor='middle' fill='%23666666'>MINISTER PHOTO</text></svg>" class="minister-img" id="ministerImg" alt="Education Minister">
+            <span class="placeholder-text" id="placeholderTxt">👉 TAP HERE TO SACK 👈</span>
+            <img src="" class="minister-img" id="ministerImg" alt="" onerror="this.style.display='none';">
             <div class="scald-text" id="scaldText">SACKED!</div>
         </div>
 
@@ -404,31 +409,51 @@
             const box = document.getElementById('ministerBox');
             const img = document.getElementById('ministerImg');
             const txt = document.getElementById('scaldText');
+            const placeholder = document.getElementById('placeholderTxt');
             const counter = document.getElementById('sackCounter');
 
             clickCount++;
             totalSacks++;
             counter.innerText = totalSacks.toLocaleString();
 
-            // Image ki opacity dheere-dheere kam karo har click par
+            // Box/Image aur text dono ki opacity manage karein click par
             let currentOpacity = 1 - (clickCount * 0.15);
             if (currentOpacity < 0) currentOpacity = 0;
-            img.style.opacity = currentOpacity;
+            
+            if(img.style.display !== 'none' && img.getAttribute('src') !== "") {
+                img.style.opacity = currentOpacity;
+            } else {
+                placeholder.style.opacity = currentOpacity;
+            }
 
-            // Agar image poori hide hone wali ho toh "SACKED!" text show karo
-            if (currentOpacity <= 0.3) {
+            // Jab poora "Sack" ho jaye tab text show karo
+            if (currentOpacity <= 0.2) {
                 txt.style.opacity = 1;
             }
 
-            // Ek baar mein 15 cockroach generate karo click point par
-            for (let i = 0; i < 15; i++) {
+            // Har click par 20 cockroaches nikalenge ek sath
+            for (let i = 0; i < 20; i++) {
                 createCockroach(event, box);
             }
         }
 
-        function createCockroach(event) {
-            const box = document.getElementById('ministerBox');
+        function createCockroach(event, box) {
             const bug = document.createElement('div');
             bug.className = 'cockroach-bug';
 
-            // Box ke relative coordinates 
+            const rect = box.getBoundingClientRect();
+            // Client coordinate se dabba coordinate nikalna (mobile friendly)
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            bug.style.left = x + 'px';
+            bug.style.top = y + 'px';
+
+            const angle = Math.random() * 2 * Math.PI;
+            bug.style.transform = `rotate(${angle + Math.PI/2}rad)`;
+
+            box.appendChild(bug);
+
+            let posX = x;
+            let posY = y;
+            let opa
