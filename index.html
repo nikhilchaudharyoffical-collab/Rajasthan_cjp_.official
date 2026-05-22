@@ -456,4 +456,24 @@
 
             let posX = x;
             let posY = y;
-            let opa
+            let opacity = 1;
+
+            const interval = setInterval(() => {
+                // Cockroaches ko thoda randomly bhagane ke liye jitter math
+                posX += Math.cos(angle) * 5 + (Math.random() * 2 - 1);
+                posY += Math.sin(angle) * 5 + (Math.random() * 2 - 1);
+                opacity -= 0.025;
+
+                bug.style.left = posX + 'px';
+                bug.style.top = posY + 'px';
+                bug.style.opacity = opacity;
+
+                if (opacity <= 0 || posX < -10 || posX > 330 || posY < -10 || posY > 390) {
+                    clearInterval(interval);
+                    bug.remove();
+                }
+            }, 20);
+        }
+    </script>
+</body>
+</html>
