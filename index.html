@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cockroach Janta Party - Rajasthan Chapter</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --bg-color: #f8f6f0;
+            --text-main: #111111;
+            --cjp-orange: #f26522;
+            --cjp-green: #007a33;
+            --cjp-dark: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: var(--bg-color);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--text-main);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .logo span.orange { color: var(--cjp-orange); }
+        .logo span.green { color: var(--cjp-green); }
+        .logo-tag { font-size: 12px; display: block; color: #555; }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--cjp-orange);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 5%;
+            background: url('hero-pattern.png'); /* Yahan tum apna rajasthan wala logo background mein set kar sakte ho opacity kam karke */
+            border-bottom: 2px solid var(--text-main);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            color: #444;
+        }
+
+        .btn {
+            background-color: var(--text-main);
+            color: var(--bg-color);
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 4px;
+            text-transform: uppercase;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: var(--cjp-orange);
+            color: white;
+        }
+
+        /* Stats Row */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 40px 5%;
+            background-color: var(--cjp-dark);
+            color: white;
+            flex-wrap: wrap;
+        }
+
+        .stat-item h3 { font-size: 2rem; color: var(--cjp-green); }
+        .stat-item p { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Content Sections */
+        .section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 40px;
+            border-bottom: 5px solid var(--cjp-orange);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        /* Manifesto Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: white;
+            border: 2px solid var(--text-main);
+            padding: 30px;
+            box-shadow: 6px 6px 0px var(--cjp-green);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 6px 11px 0px var(--cjp-orange);
+        }
+
+        .card-num {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--cjp-orange);
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+
+        .card p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Eligibility List */
+        .eligibility-list {
+            list-style: none;
+        }
+        
+        .eligibility-list li {
+            font-size: 1.5rem;
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .eligibility-list li span { color: var(--cjp-green); font-weight: bold; }
+
+        /* Footer */
+        footer {
+            background-color: var(--cjp-dark);
+            color: white;
+            padding: 60px 5% 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            margin-bottom: 40px;
+        }
+
+        .social-links {
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            color: var(--bg-color);
+            margin: 0 15px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 1px solid white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--cjp-orange);
+            color: white;
+            border-color: var(--cjp-orange);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            header { flex-direction: column; gap: 15px; }
+            nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            nav a { margin: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">
+            <span class="orange">C</span>J<span class="green">P</span>
+            <span class="logo-tag">कॉकरोच जनता पार्टी · Rajasthan</span>
+        </a>
+        <nav>
+            <a href="#vision">Vision</a>
+            <a href="#manifesto">Manifesto</a>
+            <a href="#eligibility">Eligibility</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Voice of the<br>Lazy & Unemployed</h1>
+        <p>Ek aisi political party un logo ke liye jinhe system ne count karna chhod diya hai. Paanch demands. Zero sponsors. Ek ziddi swarm. Padharo Mhare Desh, but pehle naukri do!</p>
+        <a href="#eligibility" class="btn">Join the Party &rarr;</a>
+    </section>
+
+    <div class="stats">
+        <div class="stat-item">
+            <h3>5</h3>
+            <p>Demands</p>
+        </div>
+        <div class="stat-item">
+            <h3>0</h3>
+            <p>Corporate Donors</p>
+        </div>
+        <div class="stat-item">
+            <h3>∞</h3>
+            <p>Patience</p>
+        </div>
+    </div>
+
+    <section id="vision" class="section">
+        <h2 class="section-title">Our Vision.</h2>
+        <p style="font-size: 1.5rem; max-width: 800px;">Hum yahan naye mahal banane ya 'strategic spending' ke naam par corruption rebrand karne nahi aaye hain. Hum yahan bas ye poochhne aaye hain — loud and clear — ki bhai, paper leak kyun ho rahe hain aur naukriyan kahan hain?</p>
+    </section>
+
+    <section id="manifesto" class="section" style="background-color: #fff; border-top: 2px solid #111; border-bottom: 2px solid #111;">
+        <h2 class="section-title">The Manifesto.</h2>
+        <p style="margin-bottom: 40px; font-size: 1.2rem;">Ise padho. Phir kisi aise dost ko bhejo jise sach mein ise padhne ki zaroorat hai.</p>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-num">01</div>
+                <p>Agar Rajasthan mein koi bhi government exam ka paper leak hota hai, toh saari zimmedari direct Education Minister ki hogi. No excuses.</p>
+            </div>
+            <div class="card">
+                <div class="card-num">02</div>
+                <p>Agar koi Neta/MLA chunav jeetne ke baad party badalta hai (Dal-Badlu), toh uspe 20 saal tak chunav ladne aur public office hold karne par ban lagna chahiye.</p>
+            </div>
+            <div class="card">
+                <div class="card-num">03</div>
+                <p>Mahilao ke liye 50% reservation, bina parliament/assembly ki strength badhaye. Cabinet mein bhi 50% positions reserved hongi.</p>
+            </div>
+            <div class="card">
+                <div class="card-num">04</div>
+                <p>Berozgaari bhatta lene ke liye sarkari daptaron ke chakkar lagana band. Chronically online youth ko direct account mein allowance.</p>
+            </div>
+            <div class="card">
+                <div class="card-num">05</div>
+                <p>Fake news failane wale channels ka license cancel hoga aur Godi media anchors ke bank accounts ki inquiry hogi.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="eligibility" class="section">
+        <h2 class="section-title">Are you eligible?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 30px;">Hum dharam, jaati ya gender nahi dekhte. Par hamare ye chaar (4) standards zaroor hain:</p>
+        
+        <ul class="eligibility-list">
+            <li>REQ / 01 Unemployed - Zabardasti, marzi se, ya usoolon ke karan. Hum nahi poochte. <span>✓</span></li>
+            <li>REQ / 02 Lazy - Bas physically. Dimaag tension aur overthinking se 24x7 chalna chahiye. <span>✓</span></li>
+            <li>REQ / 03 Chronically Online - Kam se kam din ke 11 ghante, bathroom breaks mila ke. <span>✓</span></li>
+            <li>REQ / 04 Pro at Ranting - Jab tak tumhare gusse mein logic hai aur baat sahi mudde par ho rahi hai. <span>✓</span></li>
+        </ul>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#contact" class="btn">Join The Swarm</a>
+            <p style="margin-top: 15px; color: #666;">Membership is free, lifelong, aur na koi registration fee hai.</p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Connect with us.</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">Join karna hai, complain karni hai ya memes bhejne hain? Social media pe aao.</p>
+            
+            <div class="social-links">
+                <a href="#" target="_blank">Instagram</a>
+                <a href="#" target="_blank">X (Twitter)</a>
+                <a href="#" target="_blank">Facebook</a>
+            </div>
+
+            <p style="margin-top: 30px;"><strong>Headquarters:</strong> Rajasthan mein jahan bhi free Wifi mil jaye.</p>
+        </div>
+        
+        <div class="copyright">
+            © 2026 Cockroach Janta Party (Rajasthan Chapter) · All rants reserved. ⚠ A work of satire.
+        </div>
+    </footer>
+
+</body>
+</html>
