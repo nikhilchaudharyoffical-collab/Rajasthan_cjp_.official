@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cockroach Janta Party — Rajasthan Chapter</title>
     <style>
-        /* Premium Brutalist Design System - Inspired by CJP Original */
+        /* Base Brutalist Design System */
         :root {
             --bg: #fdfbf7;
             --text: #111111;
@@ -102,13 +102,7 @@
             margin-bottom: 30px;
         }
 
-        .hero p {
-            font-size: 1.4rem;
-            max-width: 800px;
-            margin-bottom: 45px;
-            color: #333;
-        }
-
+        .hero p { font-size: 1.4rem; max-width: 800px; margin-bottom: 45px; color: #333; }
         .cta-group { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
 
         .btn-primary, .btn-secondary {
@@ -122,82 +116,64 @@
         .btn-secondary { background-color: transparent; color: var(--text); box-shadow: 5px 5px 0px var(--green); }
         .btn-secondary:hover { background-color: var(--green); color: white; transform: translate(-2px, -2px); box-shadow: 7px 7px 0px var(--text); }
 
-        /* --- SACK MINISTER INTERACTIVE ZONE --- */
+        /* --- SACK MINISTER ZONE (NO BOX, DIRECT IMAGE) --- */
         .sack-zone {
-            padding: 80px 5%;
-            background-color: #fff;
+            padding: 60px 5%;
+            background-color: var(--bg);
             border-bottom: var(--thick-border);
             text-align: center;
             position: relative;
         }
 
-        .image-container {
-            width: 320px;
-            height: 380px;
-            margin: 30px auto;
-            border: var(--thick-border);
-            background-color: #222; /* Blackish sleek background */
+        /* Border-less & Shadow-less image direct placement */
+        .minister-wrapper {
+            max-width: 400px;
+            margin: 40px auto;
             position: relative;
-            overflow: hidden;
             cursor: pointer;
-            box-shadow: 8px 8px 0px #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .minister-img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 1s ease-out;
-        }
-
-        .placeholder-text {
-            position: absolute;
-            color: #fff;
-            font-weight: bold;
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            pointer-events: none;
+            height: auto;
+            display: block;
+            opacity: 1; /* Initial Full Opacity */
+            transition: opacity 0.5s ease-out; /* Smooth fading */
         }
 
         .scald-text {
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 900;
             color: var(--orange);
             text-transform: uppercase;
             opacity: 0;
-            z-index: 10;
+            z-index: 1001;
             pointer-events: none;
-            transition: opacity 0.5s ease-in;
+            transition: opacity 0.4s ease-in;
             white-space: nowrap;
-            background-color: rgba(0,0,0,0.8);
-            padding: 10px 20px;
-            border: 2px solid var(--orange);
+            background-color: rgba(0,0,0,0.9);
+            padding: 15px 30px;
+            border: 3px solid var(--orange);
         }
 
-        /* Improved High-Visibility Cockroach Design */
-        .cockroach-bug {
-            position: absolute;
-            width: 35px; /* Thoda bada size taaki phone pe acche se dikhe */
-            height: 35px;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23b55d22'><path d='M12 2a2 2 0 0 0-2 2v1h4V4a2 2 0 0 0-2-2zm-3 5v2H5v1h4v2H4v1h5v2H4v1h5v2H5v1h4v1a3 3 0 0 0 6 0v-1h4v-1h-4v-2h5v-1h-5v-2h5v-1h-5V9h4V8h-4V7H9zm3 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z'/></svg>");
+        /* Global Cockroach Layer */
+        .global-cockroach {
+            position: fixed;
+            width: 32px;
+            height: 32px;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235c3a21'><path d='M12 2a2 2 0 0 0-2 2v1h4V4a2 2 0 0 0-2-2zm-3 5v2H5v1h4v2H4v1h5v2H4v1h5v2H5v1h4v1a3 3 0 0 0 6 0v-1h4v-1h-4v-2h5v-1h-5v-2h5v-1h-5V9h4V8h-4V7H9zm3 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z'/></svg>");
             background-size: contain;
             background-repeat: no-repeat;
-            z-index: 5;
+            z-index: 100000;
             pointer-events: none;
         }
 
-        .counter-text {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-top: 15px;
-        }
+        .counter-text { font-size: 1.5rem; font-weight: bold; margin-top: 15px; }
 
         /* Infinite Ticker */
         .marquee-container {
@@ -215,24 +191,12 @@
         .stat-box h2 { font-size: 4rem; font-weight: 900; color: var(--orange); }
         .stat-box p { font-size: 14px; text-transform: uppercase; font-weight: bold; color: #555; }
 
-        /* General Layout */
-        .section-wrapper { padding: 100px 5%; border-bottom: var(--thick-border); }
-        .section-header { margin-bottom: 60px; }
-        .chapter-num { font-size: 14px; font-weight: bold; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; display: block; }
-        .section-title { font-size: 3.5rem; text-transform: uppercase; font-weight: 900; letter-spacing: -1px; }
-
         /* Manifesto Grid */
         .manifesto-list { display: flex; flex-direction: column; border: var(--border); }
         .manifesto-row { display: flex; border-bottom: var(--border); background-color: white; }
         .manifesto-row:last-child { border-bottom: none; }
         .manifesto-num { font-size: 2.5rem; font-weight: 900; padding: 40px; min-width: 150px; border-right: var(--border); color: var(--green); display: flex; align-items: center; justify-content: center; background-color: rgba(0, 122, 51, 0.03); }
         .manifesto-content { padding: 40px; font-size: 1.3rem; line-height: 1.6; font-weight: bold; display: flex; align-items: center; }
-
-        /* Eligibility List */
-        .eligibility-container { max-width: 900px; margin: 0 auto; border-top: var(--border); }
-        .eligibility-row { display: flex; justify-content: space-between; align-items: center; padding: 30px 20px; border-bottom: var(--border); font-size: 1.3rem; font-weight: bold; }
-        .eligibility-row span.req { color: #888; font-size: 14px; text-transform: uppercase; margin-right: 20px;}
-        .eligibility-row span.check { color: var(--green); font-size: 1.8rem; }
 
         /* Footer */
         footer { background-color: var(--text); color: var(--bg); padding: 80px 5% 40px; text-align: center; }
@@ -250,7 +214,6 @@
             nav a { margin: 0 10px; font-size: 13px;}
             .manifesto-row { flex-direction: column; }
             .manifesto-num { border-right: none; border-bottom: var(--border); }
-            .eligibility-row { flex-direction: column; align-items: flex-start; gap: 10px; }
         }
     </style>
 </head>
@@ -274,7 +237,7 @@
     <section class="hero">
         <div class="badge">Live Since Yesterday</div>
         <h1>Voice of the<br><span style="color:var(--orange);">Lazy & Unemployed</span></h1>
-        <p>A political movement for the youth that the recruitment boards forgot to count. Five heavy demands. Zero corporate funds. One giant, stubborn swarm of Rajasthan.</p>
+        <p>Paanch demands. Zero corporate funds. Ek ziddi swarm. Padharo Mhare Desh, but pehle naukri do!</p>
         
         <div class="cta-group">
             <a href="#eligibility" class="btn-primary">Join The Party &rarr;</a>
@@ -285,20 +248,19 @@
     <section id="sack-section" class="sack-zone">
         <span class="chapter-num">Interactive Petition</span>
         <h2 class="section-title" style="font-size: 2.5rem;">Sack the Education Minister</h2>
-        <p style="margin-top: 10px; font-weight: bold; color: #444;">Click inside the box below to unleash the swarm and remove him from office!</p>
+        <p style="margin-top: 10px; font-weight: bold; color: #444;">Click on the photo below to release crocodiles across the screen!</p>
         
-        <div class="image-container" id="ministerBox" onclick="unleashSwarm(event)">
-            <span class="placeholder-text" id="placeholderTxt">👉 TAP HERE TO SACK 👈</span>
-            <img src="" class="minister-img" id="ministerImg" alt="" onerror="this.style.display='none';">
+        <div class="minister-wrapper" id="ministerWrapper" onclick="unleashPersistentSwarm(event)">
+            <img src="minister.jpg" class="minister-img" id="ministerImg" alt="Minister.jpg - Sack Me">
             <div class="scald-text" id="scaldText">SACKED!</div>
         </div>
 
-        <div class="counter-text">Total Sacks: <span id="sackCounter" style="color: var(--orange); font-size: 2rem;">7,482</span></div>
+        <div class="counter-text">Total Sacks: <span id="sackCounter" style="color: var(--orange); font-size: 2rem;">Loading...</span></div>
     </section>
 
     <div class="marquee-container">
         <div class="marquee-text">
-            YOU CANNOT SQUASH A MOVEMENT ✦ TOGETHER WE SURVIVE ✦ STRONGER TOGETHER ✦ UNITY & RESILIENCE ✦ YOU CANNOT SQUASH A MOVEMENT ✦ TOGETHER WE SURVIVE ✦ STRONGER TOGETHER ✦ UNITY & RESILIENCE ✦
+            YOU CANNOT SQUASH A MOVEMENT ✦ TOGETHER WE SURVIVE ✦ STRONGER TOGETHER ✦ UNITY & RESILIENCE ✦
         </div>
     </div>
 
@@ -323,69 +285,43 @@
             <h2 class="section-title">Our Movement's Vision.</h2>
         </div>
         <p style="font-size: 1.6rem; max-width: 900px; font-weight: bold; line-height: 1.6;">
-            Hum yahan naye sarkari mehal banane ya tax payers ke paise par aish karne nahi aaye hain. Hum yahan baar-baar, likhit mein, aur bohot loudly poochhne aaye hain ki— <span style="background-color: #fff2cc; padding: 2px 8px;">Humare Government Exams Ke Papers Leak Kaise Ho Rhe Hain?</span> Aur unka zimmedar kaun hai? That's it.
+            Hum yahan naye sarkari mehal banane nahi aaye. Hum Poochne aaye hain — <span style="background-color: #fff2cc; padding: 2px 8px;">Humare Government Exams Ke Papers Leak Kaise Ho Rhe Hain?</span> That's it.
         </p>
     </section>
 
     <section id="manifesto" class="section-wrapper" style="background-color: #faf8f5;">
         <div class="section-header">
             <span class="chapter-num">Chapter Two</span>
-            <h2 class="section-title">The Rajasthan Manifesto.</h2>
+            <h2 class="section-title">The Manifesto.</h2>
         </div>
 
         <div class="manifesto-list">
             <div class="manifesto-row">
                 <div class="manifesto-num">01</div>
-                <div class="manifesto-content">Agar state mein koi bhi sarkari exam ka paper leak hua, toh bina kisi delay ke Education Minister ko turant pad se sakh (sack) kiya jayega.</div>
+                <div class="manifesto-content">Paper leak hua toh Education Minister turant sack.</div>
             </div>
             <div class="manifesto-row">
                 <div class="manifesto-num">02</div>
-                <div class="manifesto-content">Chunav jeetne ke baad dal badalne wale kisi bhi MP/MLA par agle 20 saal tak public office hold karne aur election ladne par mukammal ban lagega.</div>
+                <div class="manifesto-content">Dal badalne wale MP/MLA par 20 saal ka ban.</div>
             </div>
             <div class="manifesto-row">
                 <div class="manifesto-num">03</div>
-                <div class="manifesto-content">Mahilao ko Vidhan Sabha aur Cabinet mein poora 50% reservation diya jayega, bina kisi kintu-parantu ke.</div>
+                <div class="manifesto-content">Mahilao ko Vidhan Sabha mein 50% reservation.</div>
             </div>
             <div class="manifesto-row">
                 <div class="manifesto-num">04</div>
-                <div class="manifesto-content">Berozgaari Bhatta (Allowance) ke liye chakkar kaatna band. Chronically online youth ke khate mein direct aur automatic transfer system hoga.</div>
+                <div class="manifesto-content">Chronically online youth ke khate mein direct allowance.</div>
             </div>
             <div class="manifesto-row">
                 <div class="manifesto-num">05</div>
-                <div class="manifesto-content">Truly independent media ko space dene ke liye, bade corporate houses dwara owned media outlets ke state licenses par kadi janch hogi.</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="eligibility" class="section-wrapper">
-        <div class="section-header" style="text-align: center;">
-            <span class="chapter-num">Chapter Three</span>
-            <h2 class="section-title">Are You Eligible to Join?</h2>
-        </div>
-
-        <div class="eligibility-container">
-            <div class="eligibility-row">
-                <div><span class="req">REQ / 01</span> Unemployed (By force, by choice, or by system)</div>
-                <span class="check">&#10003;</span>
-            </div>
-            <div class="eligibility-row">
-                <div><span class="req">REQ / 02</span> Lazy (Physically only. Dimaag spiral hote rehna chahiye)</div>
-                <span class="check">&#10003;</span>
-            </div>
-            <div class="eligibility-row">
-                <div><span class="req">REQ / 03</span> Chronically Online (Minimum 11 hours a day minimum)</div>
-                <span class="check">&#10003;</span>
-            </div>
-            <div class="eligibility-row">
-                <div><span class="req">REQ / 04</span> Professional Ranter (Logic aur sharp facts ke sath)</div>
-                <span class="check">&#10003;</span>
+                <div class="manifesto-content">Independent media ko space dene ke liye kadi janch.</div>
             </div>
         </div>
     </section>
 
     <footer id="connect">
         <div class="footer-logo">COCKROACH JANTA PARTY</div>
-        <p style="font-weight: bold; letter-spacing: 1px; color:#aaa;">RAJASTHAN CHAPTER — CONNECT WITH THE SWARM</p>
+        <p style="font-weight: bold; letter-spacing: 1px; color:#aaa;">CONNECT WITH THE SWARM</p>
         
         <div class="social-box">
             <a href="#" target="_blank">Instagram</a>
@@ -393,86 +329,95 @@
             <a href="#" target="_blank">Facebook</a>
         </div>
 
-        <p style="font-size: 14px; font-weight: bold;">HQ: Wherever the free government Wi-Fi works in Rajasthan.</p>
+        <p style="font-size: 14px; font-weight: bold;">HQ: Wherever free Wifi works in Rajasthan.</p>
         
         <div class="footer-note">
-            © 2026 COCKROACH JANTA PARTY (RJ) • ALL RANTS RESERVED. <br>
-            <span style="color: var(--orange);">⚠ WARNING: A WORK OF SATIRE & GENERAL DISGRUNTLEMENT.</span>
+            © 2026 CJP (RJ) • ALL RANTS RESERVED. <br>
+            <span style="color: var(--orange);">⚠ A WORK OF SATIRE.</span>
         </div>
     </footer>
 
     <script>
         let clickCount = 0;
-        let totalSacks = 7482;
+        let baseCounter = localStorage.getItem('cjp_sack_votes');
+        let ministerSacked = false;
+        
+        if (!baseCounter) {
+            baseCounter = 142850;
+            localStorage.setItem('cjp_sack_votes', baseCounter);
+        } else {
+            baseCounter = parseInt(baseCounter);
+        }
 
-        function unleashSwarm(event) {
-            const box = document.getElementById('ministerBox');
+        const counterElement = document.getElementById('sackCounter');
+        counterElement.innerText = baseCounter.toLocaleString();
+
+        setInterval(() => {
+            let realTimeIncrement = Math.floor(Math.random() * 3) + 1;
+            baseCounter += realTimeIncrement;
+            localStorage.setItem('cjp_sack_votes', baseCounter);
+            counterElement.innerText = baseCounter.toLocaleString();
+        }, 2500);
+
+        function unleashPersistentSwarm(event) {
+            if (ministerSacked) return;
+
             const img = document.getElementById('ministerImg');
             const txt = document.getElementById('scaldText');
-            const placeholder = document.getElementById('placeholderTxt');
-            const counter = document.getElementById('sackCounter');
 
             clickCount++;
-            totalSacks++;
-            counter.innerText = totalSacks.toLocaleString();
+            baseCounter += 5;
+            localStorage.setItem('cjp_sack_votes', baseCounter);
+            counterElement.innerText = baseCounter.toLocaleString();
 
-            // Box/Image aur text dono ki opacity manage karein click par
-            let currentOpacity = 1 - (clickCount * 0.15);
+            let currentOpacity = 1 - (clickCount * 0.10);
             if (currentOpacity < 0) currentOpacity = 0;
-            
-            if(img.style.display !== 'none' && img.getAttribute('src') !== "") {
-                img.style.opacity = currentOpacity;
-            } else {
-                placeholder.style.opacity = currentOpacity;
-            }
+            img.style.opacity = currentOpacity;
 
-            // Jab poora "Sack" ho jaye tab text show karo
-            if (currentOpacity <= 0.2) {
+            if (currentOpacity <= 0) {
+                ministerSacked = true;
                 txt.style.opacity = 1;
             }
 
-            // Har click par 20 cockroaches nikalenge ek sath
-            for (let i = 0; i < 20; i++) {
-                createCockroach(event, box);
+            for (let i = 0; i < 25; i++) {
+                createPersistentCockroach(event);
             }
         }
 
-        function createCockroach(event, box) {
+        function createPersistentCockroach(event) {
             const bug = document.createElement('div');
-            bug.className = 'cockroach-bug';
+            bug.className = 'global-cockroach';
+            bug.style.left = (event.clientX - 16) + 'px';
+            bug.style.top = (event.clientY - 16) + 'px';
+            document.body.appendChild(bug);
 
-            const rect = box.getBoundingClientRect();
-            // Client coordinate se dabba coordinate nikalna (mobile friendly)
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
+            let angle = Math.random() * 2 * Math.PI;
+            let currentX = event.clientX - 16;
+            let currentY = event.clientY - 16;
+            let speed = 3 + Math.random() * 4;
+            
+            const crawlInterval = setInterval(() => {
+                angle += (Math.random() * 0.4 - 0.2);
+                currentX += Math.cos(angle) * speed;
+                currentY += Math.sin(angle) * speed;
 
-            bug.style.left = x + 'px';
-            bug.style.top = y + 'px';
+                bug.style.left = currentX + 'px';
+                bug.style.top = currentY + 'px';
+                bug.style.transform = `rotate(${angle + Math.PI/2}rad)`;
 
-            const angle = Math.random() * 2 * Math.PI;
-            bug.style.transform = `rotate(${angle + Math.PI/2}rad)`;
+                if (currentX < 0 || currentX > window.innerWidth - 30) angle = Math.PI - angle;
+                if (currentY < 0 || currentY > window.innerHeight - 30) angle = -angle;
 
-            box.appendChild(bug);
-
-            let posX = x;
-            let posY = y;
-            let opacity = 1;
-
-            const interval = setInterval(() => {
-                // Cockroaches ko thoda randomly bhagane ke liye jitter math
-                posX += Math.cos(angle) * 5 + (Math.random() * 2 - 1);
-                posY += Math.sin(angle) * 5 + (Math.random() * 2 - 1);
-                opacity -= 0.025;
-
-                bug.style.left = posX + 'px';
-                bug.style.top = posY + 'px';
-                bug.style.opacity = opacity;
-
-                if (opacity <= 0 || posX < -10 || posX > 330 || posY < -10 || posY > 390) {
-                    clearInterval(interval);
-                    bug.remove();
+                if (ministerSacked) {
+                    let op = parseFloat(bug.style.opacity || 1);
+                    op -= 0.02;
+                    bug.style.opacity = op;
+                    if (op <= 0) {
+                        clearInterval(crawlInterval);
+                        bug.remove();
+                    }
                 }
-            }, 20);
+            }, 30);
         }
     </script>
 </body>
